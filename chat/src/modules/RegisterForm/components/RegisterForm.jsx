@@ -5,14 +5,19 @@ import { Link } from 'react-router-dom';
 
 class RegisterForm extends Component {
     render() {
+
+        const success = true;
+
         return (
             <>
+           
                 <div className="auth__top">
                     <h2>Registration</h2>
                     <p>To enter the chat you need to register</p>
                 </div>
                 <Block>
-                    <Form onSubmit={this.handleSubmit} className="login-form">
+                    { success ?
+                    (<Form onSubmit={this.handleSubmit} className="login-form">
                         <Form.Item alidateStatus='success' hasFeedback>
                         </Form.Item>
                         <Form.Item>
@@ -51,9 +56,17 @@ class RegisterForm extends Component {
                             <Button type="primary" htmlType="submit" className="login-form-button" size="large">
                             Registration
                             </Button>
-                            <Link className="auth__register-link" to="/register">Log In</Link>
+                            <Link className="auth__register-link" to="/login">Log In</Link>
                         </Form.Item>
-                    </Form>
+                    </Form>) 
+                     :(<div className="auth__success-block">
+                         <div>
+                            <Icon type="info-circle" style={{fontSize:"50px", color:'blue',}}/>
+                         </div>
+                        <h2>Verify your account</h2>
+                        <p>A letter was sent to your mail with a link to the account confirmation</p>
+                     </div>)
+                     }
                 </Block>
 
             </>
