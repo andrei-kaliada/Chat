@@ -23,33 +23,32 @@ const Message = ({ avatar, text, date, user, isMe, isReady, attachments }) => {
                 {isMe ?
                     <div style={iconRead}>
                         {isReady ?
-                            (<Icon type="check" />) :
-                            (<Icon type="check-circle" style={{ color: 'green' }} />)
+                            (<Icon type="check" className="message__icon-readed" />) :
+                            (<Icon type="check-circle" className="message__icon-readed" style={{ color: 'green' }} />)
                         }
                     </div>
                     : ""}
-                    <div className="message__avatar">
-                        <img src={avatar} alt={`Avatar ${user.fullname}`} />
-                    </div>
-                    <div className="message__info">
-                        <div className="message__bubble">
-                            <div className="message__text">
-                                <p>{text}</p>
-                            </div>
+                <div className="message__avatar">
+                    <img src={avatar} alt={`Avatar ${user.fullname}`} />
+                </div>
+                <div className="message__info">
+                    <div className="message__bubble">
+                        <div className="message__text">
+                            <p>{text}</p>
                         </div>
-                        <span className="message__date">
-                            {formatDistanceToNow(new Date(date), { addSuffix: true, locale: ru })}
-                        </span>
-                    </div> 
-            </div>
-
-            {/* <div className="message__attachments">
-                {attachments && attachments.map(item => (
-                    <div className="message__attachments-item">
-                        <img src={item.url} alt={item.filename} />
                     </div>
-                ))}
-            </div> */}
+                    <div className="message__attachments">
+                        {attachments && attachments.map(item => (
+                            <div className="message__attachments-item">
+                                <img src={item.url} alt={item.filename} />
+                            </div>
+                        ))}
+                    </div>
+                    <span className="message__date">
+                        {formatDistanceToNow(new Date(date), { addSuffix: true, locale: ru })}
+                    </span>
+                </div>
+            </div>
         </div>
 
     );
