@@ -3,6 +3,20 @@ import { Form, Icon, Input } from 'antd';
 import { Button, Block } from '../../../components/index';
 import { Link } from 'react-router-dom';
 
+const validate = ( key, errors, touched ) => {
+
+    if(touched[key]){
+        
+        if(errors[key]){
+            return 'error';
+        } else{
+            return 'success';
+        }
+    }else {
+        return '';
+    }
+} 
+
 const RegisterForm = (props) => {
 
         const success = true;
@@ -28,7 +42,7 @@ const RegisterForm = (props) => {
                     { success ?
                     (<Form onSubmit={handleSubmit} className="login-form">
                         <Form.Item 
-                        validateStatus={!touched.email ? "" : errors.email ? "error" : "success"}
+                        validateStatus={validate('email', errors, touched)}
                          hasFeedback
                          help={!touched.email ? "" : errors.email}
                          >
@@ -52,7 +66,8 @@ const RegisterForm = (props) => {
                             />
                         </Form.Item>
                         <Form.Item
-                         validateStatus={!touched.password ? "" : errors.password ? "error" : "success"} hasFeedback
+                         validateStatus={validate('password', errors, touched)} 
+                         hasFeedback
                          help={!touched.password ? "" : errors.password}
                          >
                             <Input
