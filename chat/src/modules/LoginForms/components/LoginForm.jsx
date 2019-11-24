@@ -2,21 +2,7 @@ import React from 'react';
 import { Form, Icon, Input } from 'antd';
 import { Button, Block } from '../../../components/index';
 import { Link } from 'react-router-dom';
-
-
-const validate = ( key, errors, touched ) => {
-
-    if(touched[key]){
-        
-        if(errors[key]){
-            return 'error';
-        } else{
-            return 'success';
-        }
-    }else {
-        return '';
-    }
-} 
+import { validateForm } from '../../../utils/helpers/index';
 
 
 const LoginForm = (props) => {
@@ -41,7 +27,7 @@ const LoginForm = (props) => {
             <Block>
                 <Form onSubmit={handleSubmit} className="login-form">
                     <Form.Item
-                        validateStatus={ validate('email', errors, touched)}
+                        validateStatus={ validateForm('email', errors, touched)}
                         hasFeedback
                         help={!touched.email ? "" : errors.email}
                     >
@@ -57,7 +43,8 @@ const LoginForm = (props) => {
                         />
                     </Form.Item>
                     <Form.Item
-                        validateStatus={!touched.password ? "" : errors.password ? "error" : "success"} hasFeedback
+                        validateStatus={validateForm('password', errors, touched)} 
+                        hasFeedback
                         help={!touched.password ? "" : errors.password}
                     >
                         <Input

@@ -48,6 +48,20 @@ const Home = () => {
             isMe={true}
             isReady={true}
             />  
+            <Message 
+            avatar="https://sun9-58.userapi.com/c854220/v854220990/11a61d/M6aR0K7W21k.jpg?ava=1" 
+            isTyping={true}
+            />
+            <Message 
+            avatar="https://sun9-58.userapi.com/c854220/v854220990/11a61d/M6aR0K7W21k.jpg?ava=1" 
+            attachments={[
+                {
+                    filename:"image.jpg",
+                    url:"https://source.unsplash.com/100x100/?random=1&nature,water/"
+                }
+            ]}
+            />
+             
         </section>
     );
 }
