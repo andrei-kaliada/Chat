@@ -21,6 +21,7 @@ const Message = ({ avatar, text, date, user, isMe, isReady, attachments, isTypin
         <div className={classNames('message', { 
             'message--isme': isMe,
             'message--is-typing':isTyping, 
+            'message--image':attachments && attachments.length === 1,
             })}>
             <div className="message__content">
                 {isMe ?

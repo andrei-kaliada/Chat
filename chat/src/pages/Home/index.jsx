@@ -1,5 +1,5 @@
 import React from 'react';
-import { Message } from '../../components/index';
+import { Message, DialogItem } from '../../components/index';
 
 
 import './Home.scss';
@@ -7,7 +7,23 @@ import './Home.scss';
 const Home = () => {
     return (
         <section className="home">
-            <Message 
+            <div className="dialogs">
+                 <DialogItem />
+            </div>
+            {/* <Dialogs items={
+                [{
+                    user:{
+                        fullname:Alex,
+                        avatar:null,
+                    },
+                    message:{
+                        text:"Hello my name Alex",
+                        isReay:false,
+                        created_at:new Date(),
+                    }
+                }]
+                } /> */}
+            {/* <Message 
             avatar="https://sun9-58.userapi.com/c854220/v854220990/11a61d/M6aR0K7W21k.jpg?ava=1" 
             text="Hello worldHello worldHello worldHello worldHello worldHello worldHello worldHello world" 
             date="Mon Nov 11 2019 21:20:24"
@@ -60,7 +76,7 @@ const Home = () => {
                     url:"https://source.unsplash.com/100x100/?random=1&nature,water/"
                 }
             ]}
-            />
+            /> */}
              
         </section>
     );

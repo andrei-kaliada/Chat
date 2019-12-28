@@ -65,7 +65,7 @@
             width: 33px;
             height: 33px;
             margin-right: 13px;
-            margin-bottom: 23px;
+            margin-bottom: 5px;
         }
     }
 
@@ -112,6 +112,17 @@
         .message__bubble{
             background:$light-blue;
             padding: 15px 20px;
+        }
+    }
+
+    &--image{
+        .message__attachments{
+            &-item{
+                img{
+                    width: 150px;
+                    height: 150px;
+                }
+            }
         }
     }
 
