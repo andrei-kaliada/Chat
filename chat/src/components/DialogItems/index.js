@@ -1,9 +1,10 @@
 import React, { useReducer } from 'react';
 import classNames from 'classnames';
+import { Time, IconRead } from '../index';
 
-import './Block.scss';
+import './DialogItems.scss';
 
-const Block = ({ user, message }) => {
+const Block = ({ user, message, date }) => {
 
     return(
        <div className="dialogs__item">
@@ -14,6 +15,13 @@ const Block = ({ user, message }) => {
            <div className="dialogs__item-info">
                 <div className="dialogs__item-info-top">
                     <b>Andrey Koleda</b>
+                    <span>
+                        <Time date={date}/>
+                    </span>
+                </div>
+                <div className="dialogs__item-info-bottom">
+                   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+                   <IconRead isMe={true} isReady={false} />
                 </div>
            </div>
        </div>

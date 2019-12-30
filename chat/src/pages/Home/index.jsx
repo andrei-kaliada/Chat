@@ -8,7 +8,7 @@ const Home = () => {
     return (
         <section className="home">
             <div className="dialogs">
-                 <DialogItem />
+                 <DialogItem  date="Mon Nov 11 2019 21:20:24"/>
             </div>
             {/* <Dialogs items={
                 [{
@@ -24,7 +24,7 @@ const Home = () => {
                 }]
                 } /> */}
             {/* <Message 
-            avatar="https://sun9-58.userapi.com/c854220/v854220990/11a61d/M6aR0K7W21k.jpg?ava=1" 
+            avatar="" 
             text="Hello worldHello worldHello worldHello worldHello worldHello worldHello worldHello world" 
             date="Mon Nov 11 2019 21:20:24"
             attachments={[

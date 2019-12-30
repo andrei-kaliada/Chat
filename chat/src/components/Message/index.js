@@ -1,19 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import formatDistanceToNow from 'date-fns/formatDistanceToNow';
-import { ru } from 'date-fns/locale';
-import { Icon } from 'antd';
+import { Time, IconRead } from '../index';
 
 import './Message.scss';
 
-const iconRead = {
-    display: 'flex',
-    alignItems: 'flex-end',
-    color: 'red',
-    marginBottom: '20px',
-    marginRight: '8px',
-}
+
 
 const Message = ({ avatar, text, date, user, isMe, isReady, attachments, isTyping }) => {
 
@@ -24,14 +16,7 @@ const Message = ({ avatar, text, date, user, isMe, isReady, attachments, isTypin
             'message--image':attachments && attachments.length === 1,
             })}>
             <div className="message__content">
-                {isMe ?
-                    <div style={iconRead}>
-                        {isReady ?
-                            (<Icon type="check" className="message__icon-readed" />) :
-                            (<Icon type="check-circle" className="message__icon-readed" style={{ color: 'green' }} />)
-                        }
-                    </div>
-                    : ""}
+                <IconRead isMe={isMe} isReady={isReady} />
                 <div className="message__avatar">
                     <img src={avatar} alt={`Avatar ${user.fullname}`} />
                 </div>
@@ -57,7 +42,7 @@ const Message = ({ avatar, text, date, user, isMe, isReady, attachments, isTypin
                     </div>
                     { date && 
                     <span className="message__date">
-                        {formatDistanceToNow(new Date(date), { addSuffix: true, locale: ru })}
+                        <Time date={date}/>
                     </span>
                     }
                 </div>
