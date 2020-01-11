@@ -8,7 +8,31 @@ const Home = () => {
     return (
         <section className="home">
             <div className="dialogs">
-                 <DialogItem  date="Mon Nov 11 2019 21:20:24"/>
+                 <DialogItem  
+                 date="Mon Nov 11 2019 21:20:24"
+                 user={{
+                     fullname:"Andrey Koleda",
+                     isOnline:false,
+                 }}
+                 unreaded={0}
+                 />
+                 <DialogItem  
+                 date="Mon Nov 11 2019 21:20:24"
+                 user={{
+                     fullname:"Andrey Koleda",
+                     isOnline:false,
+                 }}
+                 unreaded={0}
+                 />
+                 <DialogItem  
+                 date="Mon Nov 11 2019 21:20:24"
+                 user={{
+                     fullname:"Andrey Koleda",
+                     isOnline:true,
+                 }}
+                 unreaded={10}
+                 />
+                 
             </div>
             {/* <Dialogs items={
                 [{
