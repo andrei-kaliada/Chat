@@ -1,8 +1,19 @@
 import React, { useReducer } from 'react';
 import classNames from 'classnames';
-import { Time, IconRead } from '../index';
+import { IconRead } from '../index';
+import isToday from 'date-fns/isToday';
+import format  from 'date-fns/format';
 
 import './DialogItems.scss';
+
+
+const getMessageTime = created_at => {
+    if(false){
+        return format(created_at, 'HH:mm');
+    }else{
+        return format(created_at, 'DD.MM.YYYY');
+    }
+}
 
 const getAvatar = avatar => {
     if(avatar){
@@ -27,12 +38,11 @@ const DialogItem = ({ user, message, date,unreaded}) => {
                 <div className="dialogs__item-info-top">
                     <b>{user.fullname}</b>
                     <span>
-                        {/* <Time date={date}/> */}
-                        13.03
+                        {getMessageTime(message.created_at)}                      
                     </span>
                 </div>
                 <div className="dialogs__item-info-bottom">
-                   <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+                    {message.text}
                 {unreaded ?
                 "" : <IconRead isMe={true} isReady={false} /> }
                    { unreaded > 0 && <div className="dialogs__item-info-bottom-count">

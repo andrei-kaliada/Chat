@@ -1,5 +1,5 @@
 import React from 'react';
-import { Message, DialogItem } from '../../components/index';
+import { Message, Dialogs } from '../../components/index';
 
 
 import './Home.scss';
@@ -7,46 +7,19 @@ import './Home.scss';
 const Home = () => {
     return (
         <section className="home">
-            <div className="dialogs">
-                 <DialogItem  
-                 date="Mon Nov 11 2019 21:20:24"
-                 user={{
-                     fullname:"Andrey Koleda",
-                     isOnline:false,
-                 }}
-                 unreaded={0}
-                 />
-                 <DialogItem  
-                 date="Mon Nov 11 2019 21:20:24"
-                 user={{
-                     fullname:"Andrey Koleda",
-                     isOnline:false,
-                 }}
-                 unreaded={0}
-                 />
-                 <DialogItem  
-                 date="Mon Nov 11 2019 21:20:24"
-                 user={{
-                     fullname:"Andrey Koleda",
-                     isOnline:true,
-                 }}
-                 unreaded={10}
-                 />
-                 
-            </div>
-            {/* <Dialogs items={
+            <Dialogs items={
                 [{
                     user:{
-                        fullname:Alex,
+                        fullname:'Alex Pullinovski',
                         avatar:null,
                     },
-                    message:{
+                    lastMessage:{
                         text:"Hello my name Alex",
                         isReay:false,
-                        created_at:new Date(),
+                        created_at:'Tue Jan 28 2020 13:10:18',
                     }
                 }]
-                } /> */}
+                } />
             {/* <Message 
             avatar="" 
             text="Hello worldHello worldHello worldHello worldHello worldHello worldHello worldHello world" 
@@ -88,7 +61,8 @@ const Home = () => {
             isMe={true}
             isReady={true}
             />  
-            <Message 
+             */}
+             {/* <Message 
             avatar="https://sun9-58.userapi.com/c854220/v854220990/11a61d/M6aR0K7W21k.jpg?ava=1" 
             isTyping={true}
             />
