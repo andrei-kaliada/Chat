@@ -7,18 +7,33 @@ import './Home.scss';
 const Home = () => {
     return (
         <section className="home">
-            <Dialogs items={
+            <Dialogs
+            userId={0}
+             items={
                 [{
-                    user:{
-                        fullname:'Alex Pullinovski',
-                        avatar:null,
-                    },
-                    lastMessage:{
+                    _id:Math.random(),
                         text:"Hello my name Alex",
-                        isReay:false,
-                        created_at:'Tue Jan 28 2020 13:10:18',
-                    }
-                }]
+                        isReady:false,
+                        created_at:new Date(),
+                        user:{
+                            _id:1,
+                            fullname:'Alex Pullinovski',
+                            avatar:'https://sun9-58.userapi.com/c854220/v854220990/11a61d/M6aR0K7W21k.jpg?ava=1',
+                        },
+                },
+                {
+                    _id:Math.random(),
+                        text:"Fucckkkk",
+                        isReady:true,
+                        created_at:new Date(2014, 1, 11),
+                        user:{
+                            _id:1,
+                            fullname:'Kulik Polivik',
+                            avatar:'https://sun9-58.userapi.com/c854220/v854220990/11a61d/M6aR0K7W21k.jpg?ava=1',
+                        },
+                    
+                },
+            ]
                 } />
             {/* <Message 
             avatar="" 

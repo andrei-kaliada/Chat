@@ -8,31 +8,29 @@ import './DialogItems.scss';
 
 
 const getMessageTime = created_at => {
-    if(false){
+    if(isToday(created_at)){
         return format(created_at, 'HH:mm');
     }else{
-        return format(created_at, 'DD.MM.YYYY');
+        return format(created_at, 'dd.MM.yyyy');
     }
 }
 
-const getAvatar = avatar => {
+const getAvatar = (avatar, fullname) => {
     if(avatar){
         return (
-            <img src={avatar} alt=""/>
+            <img src={avatar} alt={fullname}/>
         );
     }else{
         //make avatar
     }
 }
 
-const DialogItem = ({ user, message, date,unreaded}) => {
+const DialogItem = ({ user, message, date, unreaded, isMe}) => {
 
     return(
        <div className={classNames("dialogs__item" , {"dialogs__item--online":user.isOnline})}>
            <div className="dialogs__item-avatar">
-               {/* <img src={user.avatar} alt={`${user.fullname}`} /> */}
-               {getAvatar('https://sun9-58.userapi.com/c854220/v854220990/11a61d/M6aR0K7W21k.jpg?ava=1')}
-              
+               {getAvatar(user.avatar, user.fullname)}      
            </div>
            <div className="dialogs__item-info">
                 <div className="dialogs__item-info-top">
@@ -42,9 +40,10 @@ const DialogItem = ({ user, message, date,unreaded}) => {
                     </span>
                 </div>
                 <div className="dialogs__item-info-bottom">
-                    {message.text}
-                {unreaded ?
-                "" : <IconRead isMe={true} isReady={false} /> }
+                    <p>{message.text}</p>
+                {/* {unreaded ?
+                "" : <IconRead isMe={true} isReady={false} />  } */}
+                {isMe && <IconRead isMe={true} isReady={false} />}
                    { unreaded > 0 && <div className="dialogs__item-info-bottom-count">
                        {unreaded}
                    </div>}
