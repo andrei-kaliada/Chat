@@ -1,8 +1,24 @@
 @import '../../styles/_variables.scss';
 
 .message{
+    $self:&;
+
     display: flex;
     margin: 20px;
+
+    &--is-audio{
+        #{$self}__audio{
+            &-btn{
+                button{
+                    border:0;
+                    width: 28px;
+                    height: 28px;
+                    border-radius: 30px;
+                    background: #0f3997;
+                }
+            }
+        }
+    }
 
     &--isme{
         display: flex;

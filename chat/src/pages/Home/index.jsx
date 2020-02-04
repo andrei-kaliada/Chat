@@ -30,11 +30,22 @@ const Home = () => {
                             _id:1,
                             fullname:'Kulik Polivik',
                             avatar:'https://sun9-58.userapi.com/c854220/v854220990/11a61d/M6aR0K7W21k.jpg?ava=1',
+                            isOnline:true,
                         },
                     
                 },
             ]
                 } />
+
+
+            <Message 
+            avatar="https://sun9-58.userapi.com/c854220/v854220990/11a61d/M6aR0K7W21k.jpg?ava=1"  
+            date="Mon Nov 11 2019 21:20:24"
+           audio="http://soundbible.com/mp3/sos-morse-code_daniel-simion.mp3"
+           
+            />
+
+                
             {/* <Message 
             avatar="" 
             text="Hello worldHello worldHello worldHello worldHello worldHello worldHello worldHello world" 
