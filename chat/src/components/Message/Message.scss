@@ -7,7 +7,20 @@
     margin: 20px;
 
     &--is-audio{
+
+        width: 300px;
+
+        #{$self}__bubble{
+            width: 250px;
+        }
+
         #{$self}__audio{
+            &-info{
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+
             &-btn{
                 button{
                     border:0;
@@ -15,6 +28,12 @@
                     height: 28px;
                     border-radius: 30px;
                     background: #0f3997;
+                    cursor: pointer;
+
+                    img{
+                        height: 11px;
+                        
+                    }
                 }
             }
         }

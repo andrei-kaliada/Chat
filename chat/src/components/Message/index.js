@@ -1,16 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { Time, IconRead } from '../index';
 import waveSvg from '../../assets/img/wave.svg' ;
-import Pause from '../../assets/img/pause.svg' ;
-import Play from '../../assets/img/play.svg' ;
+import pauseSvg from '../../assets/img/pause.svg' ;
+import playSvg from '../../assets/img/play.svg' ;
 import './Message.scss';
 
 
 
 
 const Message = ({ avatar, text, date, user, isMe, isReady, attachments, isTyping, audio }) => {
+
+    const [isPlaying, setIsPlaying] = useState(false);
 
     return (
         <div className={classNames('message', { 
@@ -41,10 +43,15 @@ const Message = ({ avatar, text, date, user, isMe, isReady, attachments, isTypin
                                 <div className="message__audio-progress"></div>
                                 <div className="message__audio-info">
                                     <div className="message__audio-btn">
-                                        <button></button>
+                                        <button>
+                                        { !isPlaying ?
+                                         (<img src={pauseSvg} alt="Pause svg" />)
+                                         : (<img src={playSvg} alt="Play svg" />)
+                                         }
+                                        </button>
                                     </div>
                                     <div className="message__audio-wave">
-                                        <img src={waveSvg} alt="Wave svg"></img>
+                                        <img src={waveSvg} alt="Wave svg" />
                                     </div>
                                     <span className="message__audio-duration">
                                         00:19
