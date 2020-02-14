@@ -8,10 +8,11 @@
 
     &--is-audio{
 
-        width: 300px;
 
         #{$self}__bubble{
-            width: 250px;
+            width: 280px;
+            position: relative;
+            overflow: hidden;
         }
 
         #{$self}__audio{
@@ -19,6 +20,7 @@
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
+                position: relative;
             }
 
             &-btn{
@@ -31,10 +33,27 @@
                     cursor: pointer;
 
                     img{
-                        height: 11px;
+                        height: 12px;
                         
                     }
                 }
+            }
+
+            &-duration{
+                color:#fff;
+                font-weight: 500;
+                opacity: 0.5;
+                font-size: 12px;
+            }
+
+            &-progress{
+                top: 0;
+                left: 0;
+                position: absolute;
+                background-color: #418fff;
+                width: 50%;
+                height: 100%;
+                
             }
         }
     }

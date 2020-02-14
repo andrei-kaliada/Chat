@@ -44,7 +44,7 @@ const Message = ({ avatar, text, date, user, isMe, isReady, attachments, isTypin
                                 <div className="message__audio-info">
                                     <div className="message__audio-btn">
                                         <button>
-                                        { !isPlaying ?
+                                        { isPlaying ?
                                          (<img src={pauseSvg} alt="Pause svg" />)
                                          : (<img src={playSvg} alt="Play svg" />)
                                          }
