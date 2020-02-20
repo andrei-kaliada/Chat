@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { Time, IconRead } from '../index';
@@ -13,6 +13,29 @@ import './Message.scss';
 const Message = ({ avatar, text, date, user, isMe, isReady, attachments, isTyping, audio }) => {
 
     const [isPlaying, setIsPlaying] = useState(false);
+    const audioElem = useRef(null);
+    const togglePlay = () => {
+        audioElem.current.volume = "0.5";
+        if(!isPlaying){
+            audioElem.current.play();
+        }else{
+            audioElem.current.pause();
+        }
+    }
+
+    useEffect(()=>{
+        audioElem.current.addEventListener('playing', () => {
+            setIsPlaying(true);
+        }, false);
+        audioElem.current.addEventListener('ended', () => {
+            setIsPlaying(false);
+        }, false);
+        audioElem.current.addEventListener('pause', () => {
+            setIsPlaying(false);
+        }, false);
+    },[]);
+
+    
 
     return (
         <div className={classNames('message', { 
@@ -40,10 +63,13 @@ const Message = ({ avatar, text, date, user, isMe, isReady, attachments, isTypin
                             }
                             { audio &&
                              <div className="message__audio">
-                                <div className="message__audio-progress"></div>
+                                 <audio ref={audioElem} src={audio} preload="auto"/>
+                                <div className="message__audio-progress">
+
+                                </div>
                                 <div className="message__audio-info">
                                     <div className="message__audio-btn">
-                                        <button>
+                                        <button onClick={togglePlay}>
                                         { isPlaying ?
                                          (<img src={pauseSvg} alt="Pause svg" />)
                                          : (<img src={playSvg} alt="Play svg" />)
